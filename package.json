@@ -1,0 +1,19 @@
+{
+  "name": "pavel",
+  "version": "0.0.1",
+  "description": "pavel is an element selector utility for javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dpvitt/pavel.git"
+  },
+  "author": "Daniel Pavitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpvitt/pavel/issues"
+  },
+  "homepage": "https://github.com/dpvitt/pavel"
+}
