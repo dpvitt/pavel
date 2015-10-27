@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dpvitt/pavel/issues"
   },
-  "homepage": "https://github.com/dpvitt/pavel"
+  "homepage": "https://github.com/dpvitt/pavel",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }
