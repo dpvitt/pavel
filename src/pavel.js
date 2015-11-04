@@ -2,7 +2,8 @@
 	'use strict';
 
 	var pavel = function () {
-		console.log('hello');
+
+		return true;
     };
 
     /////
