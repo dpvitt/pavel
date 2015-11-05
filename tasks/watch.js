@@ -16,7 +16,8 @@ module.exports = function () {
 
 	gulp.task('watch', function(){
 		gulp.watch(['./examples/*.html'], ['html']);
-		gulp.watch(['./src/*.js'], ['js']);
+		gulp.watch(['./src/*.js'], ['js', 'test']);
+		gulp.watch(['./test/*.js'], ['test']);
 	});
 
 };
