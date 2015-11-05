@@ -1,10 +1,20 @@
 (function (global) {
 	'use strict';
 
-	var pavel = function () {
+	var pavel = function() {
 
-		return true;
-    };
+		return {
+			testMethod: testMethod
+		}
+
+		function testMethod() {
+
+			console.log('called the test method');
+
+			return true;
+		}
+
+    }
 
     /////
 
