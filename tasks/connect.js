@@ -6,7 +6,7 @@ module.exports = function () {
 
 	gulp.task('connect', function () {
 		connect.server({
-			root: ['./examples/'],
+			root: ['./'],
 			port: 8888,
 			livereload: true
 		});

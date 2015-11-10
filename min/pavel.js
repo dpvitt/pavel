@@ -1,0 +1,1 @@
+!function(e){"use strict";var t=function(){function e(){return console.log("called the test method"),!0}return{testMethod:e}};"function"==typeof define&&define.amd?define(function(){return t}):"undefined"!=typeof exports?("undefined"!=typeof module&&module.exports&&(exports=module.exports=t),exports.pavel=t):e.pavel=t}(this);
