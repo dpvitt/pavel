@@ -14,9 +14,9 @@
 			return true;
 		}
 
-    }
+	}
 
-    /////
+	/////
 
 	if (typeof define === 'function' && define.amd) {
 
@@ -24,15 +24,15 @@
 
 	} else if (typeof exports !== 'undefined') {
 
-        if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = pavel;
-        }
+		if (typeof module !== 'undefined' && module.exports) {
+			exports = module.exports = pavel;
+		}
 
-        exports.pavel = pavel;
+		exports.pavel = pavel;
 
 	} else {
 
 		global.pavel = pavel;
-    }
+	}
 
 })(this);

@@ -6,7 +6,7 @@ module.exports = function () {
 
 	gulp.task('open', function(){
 		gulp.src(__filename)
-  			.pipe(open({uri: 'http://localhost:8888'}));
+			.pipe(open({uri: 'http://localhost:8888'}));
 	});
 
 };

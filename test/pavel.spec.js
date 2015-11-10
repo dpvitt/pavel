@@ -6,20 +6,20 @@ describe("Pavel", function() {
 
 	var pavelConstructor;
 
-    it("should see pavel testMethod", function() {
+	it("should see pavel testMethod", function() {
 
-    	expect(pavelConstructor.testMethod).to.be.a('function');
-    });
+		expect(pavelConstructor.testMethod).to.be.a('function');
+	});
 
-    it("should see pavel testMethod return true", function() {
+	it("should see pavel testMethod return true", function() {
 
-    	expect(pavelConstructor.testMethod()).to.equal(true);
-    });
+		expect(pavelConstructor.testMethod()).to.equal(true);
+	});
 
-    beforeEach(function () {
+	beforeEach(function () {
 
-    	pavelConstructor = pavel();
+		pavelConstructor = pavel();
 
-    });
+	});
 
 });
