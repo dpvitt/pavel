@@ -1,13 +1,17 @@
 
 var gulp = require('gulp'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename');
 
 module.exports = function () {
 
 	gulp.task('minify', function() {
-		return gulp.src('src/pavel.js')
+		gulp.src('src/pavel.js')
 			.pipe(uglify())
-			.pipe(gulp.dest('min'));
+			.pipe(rename({
+				extname: '.min.js'
+			}))
+			.pipe(gulp.dest('src'));
 	});
 
 };
