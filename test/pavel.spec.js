@@ -1,6 +1,6 @@
 
 var expect = require("chai").expect;
-var pavel = require("../src/pavel");
+var pavel = require("../js/pavel");
 
 describe("Pavel", function() {
 

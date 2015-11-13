@@ -10,13 +10,13 @@ module.exports = function () {
 	});
 
 	gulp.task('js', function() {
-		gulp.src(['./src/*.js'])
+		gulp.src(['./js/*.js'])
 			.pipe(connect.reload());
 	});
 
 	gulp.task('watch', function(){
 		gulp.watch(['./examples/*.html'], ['html']);
-		gulp.watch(['./src/*.js'], ['js', 'test']);
+		gulp.watch(['./js/*.js'], ['js', 'test']);
 		gulp.watch(['./test/*.js'], ['test']);
 	});
 

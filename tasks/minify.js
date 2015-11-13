@@ -6,12 +6,12 @@ var gulp = require('gulp'),
 module.exports = function () {
 
 	gulp.task('minify', function() {
-		gulp.src('src/pavel.js')
+		gulp.src('js/pavel.js')
 			.pipe(uglify())
 			.pipe(rename({
 				extname: '.min.js'
 			}))
-			.pipe(gulp.dest('src'));
+			.pipe(gulp.dest('js'));
 	});
 
 };
