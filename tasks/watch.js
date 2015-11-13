@@ -15,6 +15,7 @@ module.exports = function () {
 	});
 
 	gulp.task('watch', function(){
+		gulp.watch(['./scss/*.scss', './scss/**/*.scss'], ['sass']);
 		gulp.watch(['./examples/*.html'], ['html']);
 		gulp.watch(['./js/*.js'], ['js', 'test']);
 		gulp.watch(['./test/*.js'], ['test']);
