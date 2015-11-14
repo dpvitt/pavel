@@ -5,7 +5,7 @@ var sass = require('./tasks/sass.js'),
 	serve = require('./tasks/serve.js'),
 	open = require('./tasks/open.js'),
 	mocha = require('./tasks/mocha.js'),
-	minify = require('./tasks/minify.js');
+	browserify = require('./tasks/browserify.js');
 
 sass();
 watch();
@@ -13,4 +13,4 @@ connect();
 open();
 serve();
 mocha();
-minify();
+browserify();

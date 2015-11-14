@@ -6,7 +6,7 @@ module.exports = function () {
 
 	gulp.task('serve', function() {
 		runSequence(
-			['minify', 'sass', 'connect', 'watch', 'open']
+			['browserify', 'sass', 'connect', 'watch', 'open']
 		);
 	});
 

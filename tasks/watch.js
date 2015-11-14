@@ -15,10 +15,9 @@ module.exports = function () {
 	});
 
 	gulp.task('watch', function(){
+		gulp.watch(['./js/pavel.js', './js/**/*.js'], ['test', 'js']);
 		gulp.watch(['./scss/*.scss', './scss/**/*.scss'], ['sass']);
 		gulp.watch(['./examples/*.html'], ['html']);
-		gulp.watch(['./js/*.js'], ['js', 'test']);
-		gulp.watch(['./test/*.js'], ['test']);
 	});
 
 };

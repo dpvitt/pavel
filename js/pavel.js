@@ -1,38 +1,18 @@
-(function (global) {
-	'use strict';
 
-	var pavel = function() {
+module.exports = pavel;
 
-		return {
-			testMethod: testMethod
-		}
+var carouselFn = require('./modules/carousel.js');
 
-		function testMethod() {
+function pavel() {
 
-			console.log('called the test method');
+	return {
+		testMethod: testMethod,
+		carousel: carouselFn
+	};
 
-			return true;
-		}
+	function testMethod() {
 
+		console.log('called the test method');
+		return true;
 	}
-
-	/////
-
-	if (typeof define === 'function' && define.amd) {
-
-		define(function () { return pavel; });
-
-	} else if (typeof exports !== 'undefined') {
-
-		if (typeof module !== 'undefined' && module.exports) {
-			exports = module.exports = pavel;
-		}
-
-		exports.pavel = pavel;
-
-	} else {
-
-		global.pavel = pavel;
-	}
-
-})(this);
+}
