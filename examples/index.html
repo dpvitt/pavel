@@ -1,16 +1,46 @@
+<!DOCTYPE html>
 <html>
+
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="../js/pavel.js"></script>
 	</head>
+
 	<body>
-		<h1>Lovely Heading</h1>
-		<p class="para">Paragraph!</p>
+		<h1>Carousel</h1>
+
+		<div class="hero carousel"
+				data-carousel-img-base="assets/img/"
+				data-carousel-img-opts="cricket.jpg, cycling.jpg">
+
+			<img class="full-width-image" src="assets/img/surf.jpg" alt="" width="800" height="400" />
+		</div>
+
+		<!-- <div class="carousel carousel-active">
+			<ul class="carousel-item-holder list-reset">
+				<li class="carousel-item">
+					<img class="full-width-image" src="assets/img/surf.jpg" alt="" width="800" height="400" />
+				</li>
+				<li class="carousel-item">
+					<img class="full-width-image" src="assets/img/cricket.jpg" alt="" width="800" height="400" />
+				</li>
+				<li class="carousel-item">
+					<img class="full-width-image" src="assets/img/cycling.jpg" alt="" width="800" height="400" />
+				</li>
+			</ul>
+
+			<div class="carousel-control-holder">
+				<button class="carousel-control carousel-prev" type="button">skip to previous slide</button>
+				<button class="carousel-control carousel-next" type="button">skip to next slide</button>
+			</div>
+		</div> -->
+
 	</body>
+
 	<script>
 
 		var pavel = new pavel();
 		pavel.testMethod();
-
 	</script>
+
 </html>

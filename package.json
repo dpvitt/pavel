@@ -2,7 +2,7 @@
   "name": "pavel",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "js/pavel.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },

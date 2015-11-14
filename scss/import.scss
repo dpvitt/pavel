@@ -1,4 +1,7 @@
 
-@import 'modules/module';
+// base
+@import 'base/layout';
+@import 'base/helpers';
 
-@import 'base/base';
+// modules
+@import 'modules/carousel';
