@@ -6,20 +6,14 @@ describe("Pavel", function() {
 
 	var pavelConstructor;
 
-	it("should see pavel testMethod", function() {
+	it("should see pavel's carousel", function() {
 
-		expect(pavelConstructor.testMethod).to.be.a('function');
-	});
-
-	it("should see pavel testMethod return true", function() {
-
-		expect(pavelConstructor.testMethod()).to.equal(true);
+		expect(pavelConstructor).to.have.property('carousel');
 	});
 
 	beforeEach(function () {
 
-		pavelConstructor = pavel();
-
+		pavelConstructor = new pavel();
 	});
 
 });

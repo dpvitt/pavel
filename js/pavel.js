@@ -1,18 +1,11 @@
 
 module.exports = pavel;
 
-var carouselFn = require('./modules/carousel.js');
+var carouselModule = require('./modules/carousel.js');
 
 function pavel() {
 
 	return {
-		testMethod: testMethod,
-		carousel: carouselFn
+		carousel: carouselModule
 	};
-
-	function testMethod() {
-
-		console.log('called the test method');
-		return true;
-	}
 }

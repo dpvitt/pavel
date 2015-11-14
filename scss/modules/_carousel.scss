@@ -1,8 +1,7 @@
 
-.carousel-active {
+.carousel {
 	overflow: hidden;
 	width: 100%;
-	margin: 0 auto;
 }
 
 .carousel-item-holder {
@@ -10,5 +9,39 @@
 }
 
 .carousel-item {
-	float: left;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	transition: 0.5s;
+}
+
+.carousel-item-hide {
+	position: absolute;
+}
+
+.carousel-item-show {
+	z-index: 1;
+}
+
+.carousel.slide {
+
+	.carousel-item-hide {
+		left: -100%;
+	}
+
+	.carousel-item-show {
+		left: 0;
+	}
+}
+
+.carousel.fade {
+
+	.carousel-item-hide {
+		opacity: 0;
+	}
+
+	.carousel-item-show {
+		opacity: 1;
+	}
 }
