@@ -6,7 +6,7 @@ describe("Pavel", function() {
 
 	var pavelConstructor;
 
-	it("should see pavel's carousel", function() {
+	it("should see pavel's carousel property", function() {
 
 		expect(pavelConstructor).to.have.property('carousel');
 	});

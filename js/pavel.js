@@ -6,6 +6,6 @@ var carouselModule = require('./modules/carousel.js');
 function pavel() {
 
 	return {
-		carousel: carouselModule
+		carousel: carouselModule.initialise
 	};
 }

@@ -1,9 +1,19 @@
 
-var helpers = require('./helpers.js');
+var helperModule = require('./helpers.js');
 
-module.exports = function(selector) {
+module.exports = {
 
-	forEachCarousel(helpers.findElements(document, selector));
+	initialise: initialise,
+	forEachCarousel: forEachCarousel
+};
+
+function initialise(selector) {
+
+	if (!selector) {
+		throw 'initialise the method with an element selector';
+	}
+
+	forEachCarousel(helperModule.findElements(document, selector));
 }
 
 function forEachCarousel(elements) {
@@ -18,14 +28,14 @@ function forEachCarousel(elements) {
 
 function removePlaceholderImg(element) {
 
-	helpers.removeElement(element, 'img');
+	helperModule.removeElement(element, 'img');
 
 	return element;
 }
 
 function addCarouselComponentsToDOM(element) {
 
-	helpers.addToDOM([
+	helperModule.addToDOM([
 		buildThisCarousel(element),
 		buildThisCarouselControls()
 	], element);
@@ -36,7 +46,7 @@ function addCarouselComponentsToDOM(element) {
 function buildThisCarousel(element) {
 
 	var imgBase = element.dataset.carouselImgBase,
-		imgArray = helpers.splitBy(element.dataset.carouselImgOpts, ', '),
+		imgArray = helperModule.splitBy(element.dataset.carouselImgOpts, ', '),
 		imgWidth = element.dataset.carouselImgWidth,
 		imgHeight = element.dataset.carouselImgHeight;
 
@@ -94,9 +104,9 @@ function buildThisCarouselControls() {
 
 function addInteractionsToAllCarousels(element, length) {
 
-	var nextItem = helpers.findElements(element, '.carousel-next'),
-		prevItem = helpers.findElements(element, '.carousel-prev'),
-		holder = helpers.findElements(element, '.carousel-item-holder'),
+	var nextItem = helperModule.findElements(element, '.carousel-next'),
+		prevItem = helperModule.findElements(element, '.carousel-prev'),
+		holder = helperModule.findElements(element, '.carousel-item-holder'),
 		current = 1;
 
 	nextItem[0].addEventListener('click', function() {
@@ -129,13 +139,12 @@ function toggleCarouselClasses(element, current) {
 
 	var hiddenClass = 'carousel-item-hide',
 	    activeClass = 'carousel-item-show',
-	    activeEl = helpers.findElements(element, '.carousel-item-show'),
-	    newEl = helpers.findElements(element, 'li:nth-child('+ current +')');
+	    activeEl = helperModule.findElements(element, '.carousel-item-show'),
+	    newEl = helperModule.findElements(element, 'li:nth-child('+ current +')');
 
-	helpers.removeClass(activeEl, activeClass);
-	helpers.addClass(activeEl, hiddenClass);
+	helperModule.removeClass(activeEl, activeClass);
+	helperModule.addClass(activeEl, hiddenClass);
 
-	helpers.removeClass(newEl, hiddenClass);
-	helpers.addClass(newEl, activeClass);
+	helperModule.removeClass(newEl, hiddenClass);
+	helperModule.addClass(newEl, activeClass);
 }
-
