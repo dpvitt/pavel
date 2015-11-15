@@ -4,7 +4,9 @@ var helperModule = require('./helpers.js');
 module.exports = {
 
 	initialise: initialise,
-	forEachCarousel: forEachCarousel
+	buildThisImg: buildThisImg,
+	addDefaultVisibilityToFirstImage: addDefaultVisibilityToFirstImage,
+	buildThisCarouselControls: buildThisCarouselControls
 };
 
 function initialise(selector) {
@@ -71,6 +73,10 @@ function buildImgs(imgBase, imgArray, imgWidth, imgHeight) {
 }
 
 function buildThisImg(imgBase, imgSrc, imgWidth, imgHeight) {
+
+	if (arguments.length !== 4) {
+		throw 'incorrect amount of arguments';
+	}
 
 	var iterationString = '';
 

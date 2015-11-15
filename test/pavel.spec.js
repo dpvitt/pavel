@@ -1,6 +1,6 @@
 
-var expect = require("chai").expect;
-var pavel = require("../js/pavel");
+var expect = require("chai").expect,
+	pavel = require("../js/pavel");
 
 describe("Pavel", function() {
 
