@@ -1,5 +1,6 @@
 
-var helperModule = require('./helpers.js');
+var helperModule = require('./helpers.js'),
+	current = 1;
 
 module.exports = {
 
@@ -7,7 +8,9 @@ module.exports = {
 	buildThisImg: buildThisImg,
 	buildImgs: buildImgs,
 	addDefaultVisibilityToFirstImage: addDefaultVisibilityToFirstImage,
-	buildThisCarouselControls: buildThisCarouselControls
+	buildThisCarouselControls: buildThisCarouselControls,
+	slideCarouselTo: slideCarouselTo,
+	setCurrent: setCurrent
 };
 
 function initialise(selector) {
@@ -25,7 +28,7 @@ function forEachCarousel(elements) {
 
 		removePlaceholderImg(elements[i]);
 		addCarouselComponentsToDOM(elements[i]);
-		addInteractionsToAllCarousels(elements[i], 3);
+		addInteractionsToAllCarousels(elements[i]);
 	}
 }
 
@@ -57,6 +60,10 @@ function buildThisCarousel(element) {
 }
 
 function buildImgs(imgBase, imgArray, imgWidth, imgHeight) {
+
+	if (arguments.length !== 4) {
+		throw 'incorrect amount of arguments';
+	}
 
 	var imgsString = '<ul class="carousel-item-holder list-reset" data-current-item="0">';
 
@@ -109,37 +116,37 @@ function buildThisCarouselControls() {
 	return controlsString;
 }
 
-function addInteractionsToAllCarousels(element, length) {
+function addInteractionsToAllCarousels(element) {
 
 	var nextItem = helperModule.findElements(element, '.carousel-next'),
 		prevItem = helperModule.findElements(element, '.carousel-prev'),
 		holder = helperModule.findElements(element, '.carousel-item-holder'),
-		current = 1;
+		imgLength = helperModule.splitBy(element.dataset.carouselImgOpts, ', ').length;
 
 	nextItem[0].addEventListener('click', function() {
 
-		switchActiveCarouselItem(1);
+		toggleCarouselClasses(element, slideCarouselTo(1, imgLength));
     });
 
 	prevItem[0].addEventListener('click', function() {
 
-		switchActiveCarouselItem(-1);
+		toggleCarouselClasses(element, slideCarouselTo(-1, imgLength));
 	});
+}
 
-	function switchActiveCarouselItem(direction) {
+function slideCarouselTo(direction, length) {
 
-	    current = current + direction;
+    current = current + direction;
 
-	    if (current === length + 1) {
-	    	current = 1;
-	    }
+    if (current === length + 1) {
+    	current = 1;
+    }
 
-	    if (current === 0) {
-	    	current = length;
-	    }
+    if (current === 0) {
+    	current = length;
+    }
 
-	    toggleCarouselClasses(element, current);
-	}
+    return current;
 }
 
 function toggleCarouselClasses(element, current) {
@@ -155,3 +162,9 @@ function toggleCarouselClasses(element, current) {
 	helperModule.removeClass(newEl, hiddenClass);
 	helperModule.addClass(newEl, activeClass);
 }
+
+function setCurrent(value) {
+
+	current = value;
+}
+

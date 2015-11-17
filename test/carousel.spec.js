@@ -24,7 +24,14 @@ describe("Carousel", function() {
 		});
 	});
 
-	describe("Build Images", function() {
+	describe("Build images", function() {
+
+		it('should throw an error if the method is called with the incorrect amount of arguments', function () {
+
+			expect(function(){
+				carousel.buildImgs(1, 2, 3)
+			}).to.throw('incorrect amount of arguments');
+		});
 
 		it('should construct a correctly formatted unordered list with 2 images', function () {
 
@@ -38,7 +45,7 @@ describe("Carousel", function() {
 		});
 	});
 
-	describe("Build Image Element", function() {
+	describe("Build image element", function() {
 
 		it('should throw an error if the method is called with the incorrect amount of arguments', function () {
 
@@ -60,7 +67,7 @@ describe("Carousel", function() {
 		});
 	});
 
-	describe("First Image Visiblity", function(){
+	describe("First image visiblity", function(){
 
 		it('should return a visible state if the index is 0', function () {
 
@@ -75,7 +82,7 @@ describe("Carousel", function() {
 		});
 	});
 
-	describe('Build The Carousel Controls', function () {
+	describe('Build the carousel controls', function () {
 
 		it('should see all the components that make up the controls', function () {
 
@@ -87,6 +94,33 @@ describe("Carousel", function() {
 
 			expect(carousel.buildThisCarouselControls())
 				.to.contain('carousel-next');
+		});
+	});
+
+	describe('Current state of the carousel', function () {
+
+		it('should be able to increment our carousel', function () {
+
+			carousel.setCurrent(1);
+			expect(carousel.slideCarouselTo(1, 3)).to.equal(2);
+		});
+
+		it('should reset our carousel to the first item', function () {
+
+			carousel.setCurrent(3);
+			expect(carousel.slideCarouselTo(1, 3)).to.equal(1);
+		});
+
+		it('should be able to decrement our carousel', function () {
+
+			carousel.setCurrent(2);
+			expect(carousel.slideCarouselTo(-1, 3)).to.equal(1);
+		});
+
+		it('should reset our carousel to last item', function () {
+
+			carousel.setCurrent(1);
+			expect(carousel.slideCarouselTo(-1, 3)).to.equal(3);
 		});
 	});
 
