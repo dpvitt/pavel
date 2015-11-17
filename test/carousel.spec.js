@@ -6,7 +6,8 @@ var expect = require("chai").expect,
 describe("Carousel", function() {
 
 	var window,
-		document;
+		document,
+		bodyContents;
 
 	describe("Initialise", function() {
 
@@ -20,6 +21,20 @@ describe("Carousel", function() {
 			expect(function(){
 				carousel.initialise()
 			}).to.throw('initialise the method with an element selector');
+		});
+	});
+
+	describe("Build Images", function() {
+
+		it('should construct a correctly formatted unordered list with 2 images', function () {
+
+			var correctFormat = '<ul class="carousel-item-holder list-reset" data-current-item="0">';
+			correctFormat += '<li class="carousel-item carousel-item-show"><img class="full-width-image" src="assets/1.jpg" width="5" height="5" />',
+			correctFormat += '</li><li class="carousel-item carousel-item-hide"><img class="full-width-image" src="assets/2.jpg" width="5" height="5" /></li>',
+			correctFormat += '</ul>';
+
+			expect(carousel.buildImgs('assets/', ['1.jpg', '2.jpg'], 5, 5))
+				.to.equal(correctFormat);
 		});
 	});
 
@@ -82,6 +97,7 @@ describe("Carousel", function() {
 			done: function (errors, window) {
 				window = window;
 				document = window.document;
+				bodyContents = document.body.innerHTML;
 			}
 		});
 	});

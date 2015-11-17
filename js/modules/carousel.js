@@ -5,6 +5,7 @@ module.exports = {
 
 	initialise: initialise,
 	buildThisImg: buildThisImg,
+	buildImgs: buildImgs,
 	addDefaultVisibilityToFirstImage: addDefaultVisibilityToFirstImage,
 	buildThisCarouselControls: buildThisCarouselControls
 };
