@@ -3,23 +3,40 @@ module.exports = {
 
 	findElements: findElements,
 	removeElement: removeElement,
-	addToDOM: addToDOM,
 	splitBy: splitBy,
+	addToDOM: addToDOM,
 	addClass: addClass,
 	removeClass: removeClass
 }
 
 function findElements(context, selector) {
 
+	if (arguments.length !== 2) {
+		throw 'should be called with the correct amount of arguments';
+	}
+
 	return context.querySelectorAll(selector);
 }
 
 function removeElement(context, selector) {
 
+	if (arguments.length !== 2) {
+		throw 'should be called with the correct amount of arguments';
+	}
+
 	var nodeToRemove = this.findElements(context, selector);
 	context.removeChild(nodeToRemove[0]);
 
 	return context;
+}
+
+function splitBy(string, opt) {
+
+	if (arguments.length !== 2) {
+		throw 'should be called with the correct amount of arguments';
+	}
+
+	return string.split(opt);
 }
 
 function addToDOM(additions, element) {
@@ -30,11 +47,6 @@ function addToDOM(additions, element) {
 	}
 
 	return element;
-}
-
-function splitBy(string, opt) {
-
-	return string.split(opt);
 }
 
 function addClass(elements, className) {
