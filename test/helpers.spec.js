@@ -3,7 +3,7 @@ var expect = require("chai").expect,
 	helpers = require("../js/modules/helpers"),
 	jsdom = require("jsdom");
 
-describe.only("Helpers", function() {
+describe("Helpers", function() {
 
 	var document;
 
