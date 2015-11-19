@@ -26,8 +26,6 @@ function removeElement(context, selector) {
 
 	var nodeToRemove = this.findElements(context, selector);
 	context.removeChild(nodeToRemove[0]);
-
-	return context;
 }
 
 function splitBy(string, opt) {
@@ -45,8 +43,6 @@ function addToDOM(additions, element) {
 
 		element.insertAdjacentHTML('afterbegin', additions[i]);
 	}
-
-	return element;
 }
 
 function addClass(elements, className) {
