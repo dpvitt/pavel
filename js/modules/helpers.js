@@ -45,18 +45,27 @@ function addToDOM(additions, element) {
 	}
 }
 
-function addClass(elements, className) {
+function addClass(elements, newClassName) {
 
 	for (var i = 0; i < elements.length; i++) {
 
-		elements[i].classList.add(className);
+		if (elements[i].classList) {
+			elements[i].classList.add(newClassName)
+		} else {
+			elements[i].className += ' ' + newClassName;
+		}
 	}
 }
 
-function removeClass(elements, className) {
+function removeClass(elements, oldClassName) {
 
 	for (var i = 0; i < elements.length; i++) {
 
-		elements[i].classList.remove(className);
+		if (elements[i].classList) {
+			elements[i].classList.remove(oldClassName);
+		} else {
+			var reg = new RegExp('(\\s|^)' + oldClassName + '(\\s|$)');
+			elements[i].className = elements[i].className.replace(reg, ' ');
+		}
 	}
 }
