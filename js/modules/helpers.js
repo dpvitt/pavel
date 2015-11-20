@@ -47,6 +47,10 @@ function addToDOM(additions, element) {
 
 function addClass(elements, newClassName) {
 
+	if (arguments.length !== 2) {
+		throw 'should be called with the correct amount of arguments';
+	}
+
 	for (var i = 0; i < elements.length; i++) {
 
 		if (elements[i].classList) {
@@ -58,6 +62,10 @@ function addClass(elements, newClassName) {
 }
 
 function removeClass(elements, oldClassName) {
+
+	if (arguments.length !== 2) {
+		throw 'should be called with the correct amount of arguments';
+	}
 
 	for (var i = 0; i < elements.length; i++) {
 

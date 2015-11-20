@@ -65,4 +65,46 @@ describe("Helpers", function() {
 			expect(helpers.splitBy('1,2,3', ',')).to.deep.equal(['1', '2', '3']);
 		});
 	});
+
+	describe("Add Class", function() {
+
+		it('should throw an error if called with the incorrect amount of arguments', function () {
+
+			expect(function() {
+				helpers.addClass('newClassName')
+			}).to.throw('should be called with the correct amount of arguments');
+		});
+
+		it('should add a class to an element', function () {
+
+			var element = helpers.findElements(document.body, '.full-width-image'),
+				classToAdd = 'another-class';
+
+			helpers.addClass(element, classToAdd);
+
+			expect(helpers.findElements(document.body, '.full-width-image')[0].className)
+				.to.contain(classToAdd);
+		});
+	});
+
+	describe("Remove Class", function() {
+
+		it('should throw an error if called with the incorrect amount of arguments', function () {
+
+			expect(function() {
+				helpers.addClass('newClassName')
+			}).to.throw('should be called with the correct amount of arguments');
+		});
+
+		it('should add a class to an element', function () {
+
+			var element = helpers.findElements(document.body, '.full-width-image'),
+				classToRemove = 'another-class';
+
+			helpers.removeClass(element, classToRemove);
+
+			expect(helpers.findElements(document.body, '.full-width-image')[0].className)
+				.to.not.contain(classToRemove);
+		});
+	});
 });
