@@ -41,7 +41,11 @@ function addToDOM(additions, element) {
 
 	for (var i = 0; i < additions.length; i++) {
 
-		element.insertAdjacentHTML('afterbegin', additions[i]);
+		if (element.insertAdjacentHTML) {
+			element.insertAdjacentHTML('afterbegin', additions[i]);
+		} else {
+			element.innerHTML += additions[i];
+		}
 	}
 }
 

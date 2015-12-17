@@ -107,4 +107,22 @@ describe("Helpers", function() {
 				.to.not.contain(classToRemove);
 		});
 	});
+
+	describe('Add to DOM', function () {
+
+		it('should add these components to the DOM', function () {
+
+			var element = helpers.findElements(document.body, '.hero');
+
+			helpers.addToDOM([
+				'<p>paragraph</p>',
+				'<p>another paragraph</p>'
+			], element);
+
+			expect(element.innerHTML)
+				.to.contain('<p>paragraph</p>');
+			expect(element.innerHTML)
+				.to.contain('<p>another paragraph</p>');
+		});
+	});
 });
