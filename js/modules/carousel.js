@@ -65,11 +65,11 @@ function buildImgs(imgBase, imgArray, imgWidth, imgHeight) {
 		throw 'incorrect amount of arguments';
 	}
 
-	var imgsString = '<ul class="carousel-item-holder list-reset" data-current-item="0">';
+	var imgsString = '<ul role="listbox" class="carousel-item-holder list-reset" data-current-item="0">';
 
 	for (var i = 0; i < imgArray.length; i++) {
 
-		imgsString += '<li class="carousel-item ',
+		imgsString += '<li role="option" tabindex="'+ whatTabIndex(i) +'" aria-selected="false" class="carousel-item ',
 		imgsString += addDefaultVisibilityToFirstImage(i) +'">',
 		imgsString += buildThisImg(imgBase, imgArray[i], imgWidth, imgHeight),
 		imgsString += '</li>';
@@ -109,8 +109,8 @@ function addDefaultVisibilityToFirstImage(i) {
 function buildThisCarouselControls() {
 
 	var controlsString = '<div class="carousel-control-holder">';
-		controlsString += '	<button class="carousel-control carousel-prev" type="button">skip to previous slide</button>',
-		controlsString += '	<button class="carousel-control carousel-next" type="button">skip to next slide</button>',
+		controlsString += '	<button class="carousel-control carousel-prev" title="previous" type="button">skip to previous slide</button>',
+		controlsString += '	<button class="carousel-control carousel-next" title="next" type="button">skip to next slide</button>',
 		controlsString += '</div>';
 
 	return controlsString;
@@ -158,9 +158,24 @@ function toggleCarouselClasses(element, current) {
 
 	helperModule.removeClass(activeEl, activeClass);
 	helperModule.addClass(activeEl, hiddenClass);
+	helperModule.setAttributeTo(activeEl, 'aria-selected', false);
+	helperModule.setAttributeTo(activeEl, 'tabindex', '-1');
 
 	helperModule.removeClass(newEl, hiddenClass);
 	helperModule.addClass(newEl, activeClass);
+	helperModule.setAttributeTo(newEl, 'aria-selected', true);
+	helperModule.setAttributeTo(newEl, 'tabindex', '0');
+}
+
+function whatTabIndex(i) {
+
+	var tabindex = '-1';
+
+	if (i == 0) {
+		tabindex = '0';
+	}
+
+	return tabindex;
 }
 
 function setCurrent(value) {

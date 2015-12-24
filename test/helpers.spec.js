@@ -125,4 +125,16 @@ describe("Helpers", function() {
 				.to.contain('<p>another paragraph</p>');
 		});
 	});
+
+	describe('Set Attribute on Element', function () {
+
+		it('should set an attribute on an element', function () {
+
+			var element = helpers.findElements(document.body, '.hero');
+
+			helpers.setAttributeTo(element, 'aria-selected', true);
+
+			expect(element[0].getAttribute('aria-selected')).to.equal('true');
+		});
+	});
 });

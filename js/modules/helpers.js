@@ -6,7 +6,8 @@ module.exports = {
 	splitBy: splitBy,
 	addToDOM: addToDOM,
 	addClass: addClass,
-	removeClass: removeClass
+	removeClass: removeClass,
+	setAttributeTo: setAttributeTo
 }
 
 function findElements(context, selector) {
@@ -80,4 +81,9 @@ function removeClass(elements, oldClassName) {
 			elements[i].className = elements[i].className.replace(reg, ' ');
 		}
 	}
+}
+
+function setAttributeTo(element, attr, state) {
+
+	element[0].setAttribute(attr, state);
 }
