@@ -7,23 +7,27 @@ module.exports = {
 	addToDOM: addToDOM,
 	addClass: addClass,
 	removeClass: removeClass,
-	setAttributeTo: setAttributeTo
+	setAttributeTo: setAttributeTo,
+	throwArgumentLengthError: throwArgumentLengthError
+}
+
+function throwArgumentLengthError(actualLength, expectedLength) {
+
+	if (actualLength !== expectedLength) {
+		throw 'should be called with the correct amount of arguments';
+	}
 }
 
 function findElements(context, selector) {
 
-	if (arguments.length !== 2) {
-		throw 'should be called with the correct amount of arguments';
-	}
+	throwArgumentLengthError(arguments.length, 2);
 
 	return context.querySelectorAll(selector);
 }
 
 function removeElement(context, selector) {
 
-	if (arguments.length !== 2) {
-		throw 'should be called with the correct amount of arguments';
-	}
+	throwArgumentLengthError(arguments.length, 2);
 
 	var nodeToRemove = this.findElements(context, selector);
 	context.removeChild(nodeToRemove[0]);
@@ -31,9 +35,7 @@ function removeElement(context, selector) {
 
 function splitBy(string, opt) {
 
-	if (arguments.length !== 2) {
-		throw 'should be called with the correct amount of arguments';
-	}
+	throwArgumentLengthError(arguments.length, 2);
 
 	return string.split(opt);
 }
@@ -52,9 +54,7 @@ function addToDOM(additions, element) {
 
 function addClass(elements, newClassName) {
 
-	if (arguments.length !== 2) {
-		throw 'should be called with the correct amount of arguments';
-	}
+	throwArgumentLengthError(arguments.length, 2);
 
 	for (var i = 0; i < elements.length; i++) {
 
@@ -68,9 +68,7 @@ function addClass(elements, newClassName) {
 
 function removeClass(elements, oldClassName) {
 
-	if (arguments.length !== 2) {
-		throw 'should be called with the correct amount of arguments';
-	}
+	throwArgumentLengthError(arguments.length, 2);
 
 	for (var i = 0; i < elements.length; i++) {
 

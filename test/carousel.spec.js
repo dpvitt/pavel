@@ -30,7 +30,7 @@ describe("Carousel", function() {
 
 			expect(function(){
 				carousel.buildImgs(1, 2, 3)
-			}).to.throw('incorrect amount of arguments');
+			}).to.throw('should be called with the correct amount of arguments');
 		});
 
 		it('should construct a correctly formatted unordered list with 2 images', function () {
@@ -51,7 +51,7 @@ describe("Carousel", function() {
 
 			expect(function(){
 				carousel.buildThisImg(1, 2, 3)
-			}).to.throw('incorrect amount of arguments');
+			}).to.throw('should be called with the correct amount of arguments');
 		});
 
 		it('should return a correctly formatted image object', function () {

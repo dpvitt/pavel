@@ -61,9 +61,7 @@ function buildThisCarousel(element) {
 
 function buildImgs(imgBase, imgArray, imgWidth, imgHeight) {
 
-	if (arguments.length !== 4) {
-		throw 'incorrect amount of arguments';
-	}
+	helperModule.throwArgumentLengthError(arguments.length, 4);
 
 	var imgsString = '<ul role="listbox" class="carousel-item-holder list-reset" data-current-item="0">';
 
@@ -82,9 +80,7 @@ function buildImgs(imgBase, imgArray, imgWidth, imgHeight) {
 
 function buildThisImg(imgBase, imgSrc, imgWidth, imgHeight) {
 
-	if (arguments.length !== 4) {
-		throw 'incorrect amount of arguments';
-	}
+	helperModule.throwArgumentLengthError(arguments.length, 4);
 
 	var iterationString = '';
 
